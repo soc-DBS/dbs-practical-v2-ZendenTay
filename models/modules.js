@@ -1,9 +1,9 @@
 const { query } = require('../database');
 const { EMPTY_RESULT_ERROR, SQL_ERROR_CODE, UNIQUE_VIOLATION_ERROR } = require('../errors');
 
-module.exports.create = function create(code, name, credit) {
+module.exports.create = function create(code, name, credits) {
     const sql = 'CALL create_module($1,$2,$3)';
-    return query (sql,[code,name,credit])
+    return query (sql,[code,name,credits])
     .then(function (result) {
         console.log('Module created successfully')
     })
